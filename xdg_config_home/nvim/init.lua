@@ -1,8 +1,8 @@
 require('starter')
 require('completion')
+require('explorer')
 require('plugins')
 require('mini.pick').setup()
-require('mini.files').setup()
 require('gruvbox').setup(
 	{
 		transparent_mode = true
@@ -33,4 +33,4 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
 vim.keymap.set('n', '<leader>c', ':e '..vim.fn.stdpath("config")..'<CR>')
-vim.keymap.set('n', '<leader>e', ':e .<CR>')
+vim.keymap.set('n', '<leader>e', require('explorer').open)
