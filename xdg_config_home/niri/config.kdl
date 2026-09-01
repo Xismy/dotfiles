@@ -1,10 +1,11 @@
 //up to niri 26.04
 environment {
 	TERMINAL "/usr/bin/kitty"
+	QT_QPA_PLATFORMTHEME "gtk3"
 }
 
 spawn-at-startup "awww-daemon"
-spawn-at-startup "qs"
+spawn-at-startup "/usr/local/bin/qs"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
 workspace "browse"
@@ -37,7 +38,7 @@ input {
 
 cursor {
 	xcursor-theme "volantes_light_cursors"
-	xcursor-size 64
+	xcursor-size 32
 	hide-after-inactive-ms 1500
 }
 

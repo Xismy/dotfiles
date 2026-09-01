@@ -1,22 +1,14 @@
+vim.g.mapleader = ' '
+vim.g.maplocalleader = '\\'
 require('starter')
+local explorer = require('explorer')
+require('picker')
+require('theme')
+require('lsp')
 require('completion')
-require('explorer')
+require('keys')
+require('ai')
 require('plugins')
-require('mini.pick').setup()
-require('gruvbox').setup(
-	{
-		transparent_mode = true
-	}
-)
-require('mason').setup()
-require('mason-lspconfig').setup(
-	{
-		ensure_installed = {
-			"clangd"
-		}
-	}
-)
---require('oil').setup()
 
 vim.opt.expandtab = false
 vim.opt.shiftwidth = 4
@@ -26,11 +18,7 @@ vim.opt.listchars='tab:,leadtab:  ,lead:·,trail:·'
 vim.opt.wrap = false
 vim.opt.number = true
 vim.opt.relativenumber = true
-
+vim.keymap.set('n', '<leader><leader>', MiniStarter.open, { desc = 'Show starter' })
+vim.keymap.set('n', '<leader>e', explorer.open, { desc = 'Open explorer' })
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Show diagnostics' })
 vim.cmd.colorscheme('gruvbox')
-
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
-
-vim.keymap.set('n', '<leader>c', ':e '..vim.fn.stdpath("config")..'<CR>')
-vim.keymap.set('n', '<leader>e', require('explorer').open)
